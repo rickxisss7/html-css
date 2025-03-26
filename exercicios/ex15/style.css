@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(99, 92, 92);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+
+    }
+    h1 {
+    color: rgba(0, 0, 0, 0.692);
+    background-color: rgb(94, 114, 114);
+    }
+    h2 {
+    color: rgb(253, 253, 253);
+    background-color: black;
+    }

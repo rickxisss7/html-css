@@ -1,0 +1,92 @@
+.cabecalho {
+    background-image:linear-gradient(to bottom, rgb(24, 224, 141), rgb(38, 161, 100), rgb(11, 59, 39));
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   text-align: center;
+   font-style: italic;
+ margin: -3.3vh;
+ display: auto;
+ 
+   
+}
+
+body{
+max-width: 1000px;
+min-width: 400px;
+background-color: aquamarine;
+}
+
+.um {
+
+position: relative;
+bottom: -118px;
+transform: translateX(70px);
+text-align: left;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 100;
+color: rgb(255, 255, 255);
+}
+
+.dois {
+    position: relative;
+    bottom: -78px;
+    transform: translateX(150px);
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+}
+
+.tres {
+    position: relative;
+    bottom: -37px;
+    transform: translateX(240px);
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+}
+
+.quat {
+    position: relative;
+    bottom: 3px;
+    transform: translateX(370px);
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+
+}
+
+.conteudo {
+padding: auto;
+
+background-color: rgb(255, 255, 255);
+border-left: 100px;
+margin: 0px 120px;
+}
+
+.bg {
+text-decoration: none;
+color: brown;
+}
+
+.bg:hover {
+color: rgb(255, 0, 0);
+}
+
+.pri {
+color: white;
+transform: translateY(70px);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: bolder;
+}
+
+h4 {
+color: rgba(255, 255, 255, 0.74);
+transform: translateY(70px);
+}
+
+.irina{
+
+
+}

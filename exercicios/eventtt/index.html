@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrado Saltador</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        canvas {
+            background-color: #87CEEB;
+            display: block;
+            margin: auto;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quadrado Saltador 🏃‍♂️⬛</h1>
+    <p>Pressione <strong>ESPAÇO</strong> para pular e evitar os obstáculos!</p>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let quadrado = { x: 50, y: 300, width: 30, height: 30, velocidadeY: 0, pulando: false };
+        let chao = { x: 0, y: 350, width: canvas.width, height: 50 };
+        let obstaculos = [];
+        let velocidadeJogo = 4;
+        let gravidade = 0.5;
+        let pontuacao = 0;
+        let jogoRodando = true;
+
+        function desenharQuadrado() {
+            ctx.fillStyle = "red";
+            ctx.fillRect(quadrado.x, quadrado.y, quadrado.width, quadrado.height);
+        }
+
+        function desenharChao() {
+            ctx.fillStyle = "green";
+            ctx.fillRect(chao.x, chao.y, chao.width, chao.height);
+        }
+
+        function desenharObstaculos() {
+            ctx.fillStyle = "black";
+            obstaculos.forEach(obs => ctx.fillRect(obs.x, obs.y, obs.width, obs.height));
+        }
+
+        function atualizarQuadrado() {
+            quadrado.velocidadeY += gravidade;
+            quadrado.y += quadrado.velocidadeY;
+
+            if (quadrado.y >= 300) {
+                quadrado.y = 300;
+                quadrado.pulando = false;
+            }
+        }
+
+        function atualizarObstaculos() {
+            obstaculos.forEach(obs => obs.x -= velocidadeJogo);
+
+            if (obstaculos.length === 0 || obstaculos[obstaculos.length - 1].x < 500) {
+                let altura = 30 + Math.random() * 20;
+                obstaculos.push({ x: 800, y: 320, width: altura, height: altura });
+            }
+
+            if (obstaculos[0] && obstaculos[0].x < -30) {
+                obstaculos.shift();
+                pontuacao++;
+                if (pontuacao % 5 === 0) velocidadeJogo += 0.5;
+            }
+        }
+
+        function detectarColisao() {
+            obstaculos.forEach(obs => {
+                if (
+                    quadrado.x < obs.x + obs.width &&
+                    quadrado.x + quadrado.width > obs.x &&
+                    quadrado.y < obs.y + obs.height &&
+                    quadrado.y + quadrado.height > obs.y
+                ) {
+                    jogoRodando = false;
+                    alert(`Game Over! Sua pontuação: ${pontuacao}`);
+                    document.location.reload();
+                }
+            });
+        }
+
+        function loop() {
+            if (jogoRodando) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                desenharChao();
+                desenharQuadrado();
+                desenharObstaculos();
+                atualizarQuadrado();
+                atualizarObstaculos();
+                detectarColisao();
+                requestAnimationFrame(loop);
+            }
+        }
+
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "Space" && !quadrado.pulando) {
+                quadrado.velocidadeY = -10;
+                quadrado.pulando = true;
+            }
+        });
+
+        loop();
+    </script>
+
+</body>
+</html>

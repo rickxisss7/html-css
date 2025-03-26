@@ -1,0 +1,33 @@
+/*h1 {
+    background-color: plum;
+    height: 200px;
+    width: 300px;
+    border: 10px dashed blue;
+    margin: 10px auto 10px auto;
+   
+}  */
+
+#autor { 
+background-color: rgb(128, 128, 128);
+font-family: Georgia, 'Times New Roman', Times, serif;
+color: rgb(99, 76, 18);
+}
+
+#conteudo {
+background-color: black;
+color: wheat;
+}
+
+body {
+background-color: rgb(211, 211, 211);
+}
+
+
+
+.selecao {
+border-radius: 20px 20px 20px 20px ;
+background-color: brown;
+font-size: small;
+margin: 45%;
+text-align: center;
+}

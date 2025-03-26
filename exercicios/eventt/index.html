@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Quadrado que Foge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            position: relative;
+            width: 90vw;
+            height: 60vh;
+            margin: auto;
+            border: 2px solid black;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .quadrado {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jogo do Quadrado que Foge</h1>
+    <p>Tente clicar no quadrado vermelho!</p>
+    <div class="container">
+        <div class="quadrado" id="quadrado"></div>
+    </div>
+
+    <script>
+        const quadrado = document.getElementById("quadrado");
+        const container = document.querySelector(".container");
+
+        quadrado.addEventListener("mouseover", () => {
+            let maxX = container.clientWidth - quadrado.clientWidth;
+            let maxY = container.clientHeight - quadrado.clientHeight;
+
+            let newX = Math.random() * maxX;
+            let newY = Math.random() * maxY;
+
+            quadrado.style.left = `${newX}px`;
+            quadrado.style.top = `${newY}px`;
+        });
+
+        quadrado.addEventListener("click", () => {
+            alert("Você conseguiu clicar no quadrado! 🏆");
+        });
+    </script>
+
+</body>
+</html>
